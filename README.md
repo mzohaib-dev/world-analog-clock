@@ -2,6 +2,16 @@
 Responsive Analog Clock Ui Design Using React Js.
 
 
+</ul><h2> Preview ⚡️</h2>
+<table align="center">
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/96d12cf6-9616-4f39-b46a-f8d562b8dfca" width=890 height=480></td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/9fa01cad-b461-4750-883e-737b9eb355b2" width=890 height=480></td>
+  </tr>
+</table>
+
 
 ## Usage 📋
 <details open>

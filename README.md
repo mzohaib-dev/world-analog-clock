@@ -5,10 +5,10 @@ Responsive Analog Clock Ui Design Using React Js.
 </ul><h2> Preview ⚡️</h2>
 <table align="center">
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/2cf95ef1-e703-4dd7-904c-7017e3fb10bb"></td>
+    <td><img src="https://github.com/user-attachments/assets/61e5a222-73a4-4604-8342-447fac609bcd"></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/5179dc0e-459c-4851-91e4-8182da5eb99f" ></td>
+    <td><img src="https://github.com/user-attachments/assets/11d7a8ff-7447-4dcf-91de-cdb4c821a85f" ></td>
   </tr>
 </table>
 

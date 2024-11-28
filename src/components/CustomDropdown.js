@@ -59,7 +59,7 @@ const DropdownWithSearch = ({ options, placeholder = "Select an option" }) => {
                 onClick={() => handleOptionClick(option)}
                 data-value="2"
                 data-display-text=""
-                 tabindex="0"
+                 tabIndex="0"
               >
                 {option.flag } { option.label}
               </li>

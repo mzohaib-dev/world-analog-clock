@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./Clock.css";  // Import the CSS file to style this component
-
+import "./assets/css/clock.css";  // Import the CSS file to style this component
+import { Country, State, City }  from 'country-state-city';
+import CustomDropdown from "./CustomDropdown";
 const Clock = () => {
   const [time, setTime] = useState({
+    dayName: "",
     hours: 0,
     minutes: 0,
     seconds: 0,
@@ -11,11 +13,13 @@ const Clock = () => {
     month: 0,
     year: 0
   });
-  
+
   const [theme, setTheme] = useState({
     selectedTheme: localStorage.getItem("selected-theme") || "light",
     selectedIcon: localStorage.getItem("selected-icon") || "bxs-sun"
   });
+
+  const [options, setOptions] = useState([]);
 
   useEffect(() => {
     // Update the clock every second
@@ -47,6 +51,7 @@ const Clock = () => {
 
       // Set the time
       setTime({
+        dayName : date.getDay(),
         hours: hh,
         minutes: mm,
         seconds: ss,
@@ -61,6 +66,16 @@ const Clock = () => {
     const interval = setInterval(clock, 1000); // Update every second
 
     return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
+  useEffect(() => {
+    const cities = Country.getAllCountries();
+    const cityOptions = cities.map((city) => ({
+      value: `${city.name.toLowerCase().replace(/\s+/g, "_")}_${city.isoCode}`, 
+      label: city.name,
+      flag: city.flag,
+    }));
+    setOptions(cityOptions);
   }, []);
 
   useEffect(() => {
@@ -81,11 +96,15 @@ const Clock = () => {
   const months = [
     "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
   ];
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
   return (
     <section className="clock container">
       <div className="clock__container grid">
         <div className="clock__content grid">
+          <div className="container-dropdown">
+              <CustomDropdown options={options} />
+          </div>
           <div className="clock__circle">
             <span className="clock__twelve"></span>
             <span className="clock__three"></span>
@@ -128,6 +147,7 @@ const Clock = () => {
             </div>
 
             <div className="clock__date">
+            <span>{days[time.dayName]}</span>
               <span>{time.day}</span>
               <span>{months[time.month]}</span>
               <span>{time.year}</span>
@@ -135,14 +155,14 @@ const Clock = () => {
           </div>
         </div>
 
-        <a
+        {/* <a
           href="https://github.com/mzohaib-dev/world-analog-clock.git"
           target="_blank"
           rel="noopener noreferrer"
           className="clock__logo"
         >
           github.com/mzohaib-dev
-        </a>
+        </a> */}
       </div>
     </section>
   );
